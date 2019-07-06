@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from "./login/login.component"
+import { MomentModule } from 'angular2-moment';
+import { HttpClientModule } from '@angular/common/http';
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -86,7 +88,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MomentModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
