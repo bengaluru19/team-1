@@ -1,0 +1,35 @@
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .dashboard{
+    margin-top: 50px;
+    display: grid;
+    grid-auto-flow: column;
+    place-content: center;
+    grid-gap: 10px;
+    .stat-box{
+      padding: 20px;
+      border-radius: 6px 6px 0 0;
+      border-bottom:2px solid #01AEF0;
+      box-shadow: 0 0 10px 1px #9292922d;
+      font-size: 1.2rem;
+      font-weight: 900;
+      .big{
+        font-weight: 100;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .dashboard-list{
+    .event{
+
+
+      .status{
+        svg{
+          fill: #ec1943;
+        }
+      }
+    }
+  }
+}

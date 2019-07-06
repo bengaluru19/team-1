@@ -5,9 +5,11 @@
   </div>
   <div class="nav">
     <ul class="menu">
-      <li>Home</li>
-      <li>About</li>
-      <li>Login</li>
+      <li *ngFor="let menu of allMenus" [routerLink]="[ menu.route ]">{{menu.text}}</li>
+      
+      <li *ngIf="isLoggedIn" (click)="login()">Login</li>
+      <li *ngIf="!isLoggedIn" (click)="logout()">Logout</li>
     </ul>
   </div>
 </div>
+
