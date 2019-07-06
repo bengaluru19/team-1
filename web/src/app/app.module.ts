@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from "./login/login.component"
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -40,10 +41,13 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    LoginComponent,
     HomeComponent
   ],
   imports: [
@@ -81,7 +85,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
