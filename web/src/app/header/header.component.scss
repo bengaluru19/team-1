@@ -1,0 +1,27 @@
+.header{
+  display: grid;
+  padding: 10px 15px;
+  grid-template-columns: 1fr auto;
+  background: #fff;
+  align-items: center;
+  img{
+    height: 60px;
+  }
+}
+.menu{
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-gap: 50px;
+  margin-right: 20px;
+  li{
+    font-weight: 900;
+    cursor: pointer;
+    padding: 10px 15px;
+    list-style: none;
+    color: #fff;
+    &:hover{
+      background: #ffffff0d;
+    }
+  }
+}
