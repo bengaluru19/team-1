@@ -2,10 +2,14 @@
   display: grid;
   padding: 10px 15px;
   grid-template-columns: 1fr auto;
-  background: #fff;
+  border-bottom:2px solid #01AEF0;
   align-items: center;
-  img{
-    height: 60px;
+  .logo{
+    img{
+      cursor: pointer;
+      height: 60px;
+      margin-left: 20px;
+    }
   }
 }
 .menu{
@@ -19,7 +23,7 @@
     cursor: pointer;
     padding: 10px 15px;
     list-style: none;
-    color: #fff;
+    color: #000;
     &:hover{
       background: #ffffff0d;
     }
