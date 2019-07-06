@@ -8,9 +8,18 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 })
 
 export class HeaderComponent {
-  // @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+  isLoggedIn;
+  allMenus;
+  constructor() {
+    this.isLoggedIn = true;
+    this.allMenus = [{
+      text: "Home",
+      route: ""
+    }, {
+      text: "Dashboard",
+      route: "/dashboard"
+    }]
+  }
 
-  // someMethod() {
-  //   this.trigger.openMenu();
-  // }
+
 }
