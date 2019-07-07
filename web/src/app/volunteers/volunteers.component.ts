@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import Fuse from 'fuse.js';
+// import Fuse from 'fuse.js';
 import { CwfdataService } from '../cwfdata.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -20,9 +20,9 @@ export class VolunteersComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       console.log(params)
     })
-    const options: Fuse.FuseOptions = {
-      keys: ['name'],
-    };
+    // const options: Fuse.FuseOptions = {
+    //   keys: ['name'],
+    // };
     
     cwf.getAllVolunteers().subscribe((d)=>{
       this.people = d;
@@ -65,7 +65,7 @@ export class VolunteersComponent implements OnInit {
         maxVol: 40
       }]
   
-      this.fuse = new Fuse(this.people, options)
+      // this.fuse = new Fuse(this.people, options)
     })
     
    
