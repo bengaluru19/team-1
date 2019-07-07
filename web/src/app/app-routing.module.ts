@@ -13,10 +13,8 @@ import { VolunteersComponent } from './volunteers/volunteers.component';
 import { CreateEventsComponent } from './create-events/create-events.component';
 
 
-const routes: Routes = [{
-    path: "Home", 
-    component: HomeComponent
-  }, {
+const routes: Routes = [
+  {
     path: '',
     component:LoginComponent
   },{

@@ -67,7 +67,7 @@ import { GlobalsService } from './globals.service';
     DashboardComponent,
     ReportsComponent,
     ProfileComponent,
-    VolunteersComponent
+    VolunteersComponent,
     CreateEventsComponent,
   ],
   imports: [
