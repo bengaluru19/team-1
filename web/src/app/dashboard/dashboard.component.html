@@ -14,14 +14,14 @@
   
   
       <div class="stat-box">
-          <div>All Event</div>
-          <div  class="big">{{eventsList.length + 10}}</div>
+          <div>Completed Event</div>
+          <div  class="big">{{getCountX()}}</div>
       </div>
   
-  
+      <!-- <pre>{{eventsList | json  }}</pre> -->
       <div class="stat-box">
-          <div>Total Volunteers</div>
-          <div  class="big"></div>
+          <div>Upcoming Event</div>
+          <div  class="big">{{(eventsList[0].date) | amTimeAgo}}</div>
       </div>
     </div>
     <div class="frame" *ngIf="activeEvent">
@@ -29,7 +29,7 @@
         <div class="card">
           <div class="title">{{activeEvent.title}}</div>
           <div class="volun"><i class="material-icons">check_circle</i>{{activeEvent.volunteers.length}}/{{activeEvent.capacity}}</div>
-          <div class="loc"><i class="material-icons">pin_drop</i>{{activeEvent.loc}}</div>
+          <div class="loc"><i class="material-icons">pin_drop</i>{{"Marathahalli"}}</div>
           <div class="text">{{activeEvent.description}}</div>
           <div class="heading">
             <h4 >Volunteers List</h4>

@@ -41,7 +41,6 @@ export class DashboardComponent implements OnInit {
       this.totalVols = r.length;
     })
       
-
     
     this.eventData = [
       {
@@ -52,7 +51,16 @@ export class DashboardComponent implements OnInit {
     ]
   
   } //end of constructor
-
+  getCountX(){
+    let count = 0;
+    this.eventsList.forEach(el => {
+      if(!el.capacity>=1){
+        count++
+      }
+    });
+    return count;
+  }
+  
   getAllEvents(){
     return this.cwf.getEvents();
   }
