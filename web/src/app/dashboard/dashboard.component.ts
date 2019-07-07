@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     this.approvedList = true;
 
     this.eventsList =  this.http.post(cwf.domain + "/getEvents", {}).subscribe((s)=>{
-      this.eventsList = s;
+      this.eventsList = s.reverse();
       this.eventsList.forEach((element, i) => {
         this.cwf.getEventPeople(element._id).subscribe((d)=>{
           console.log(d, i);
@@ -37,6 +37,7 @@ export class DashboardComponent implements OnInit {
 
     this.vols = cwf.getAllVolunteers().subscribe((r)=>{
       this.vols = r;
+      
     })
       
 
@@ -56,7 +57,19 @@ export class DashboardComponent implements OnInit {
   }
   showEventData(ev){
     this.activeEvent = ev;
+    let x = {};    
+      this.vols.forEach(el => {
+        x[el._id] = el;
+      });
+      this.vols = x;      
+      
+    // this.activeEvent.volunteers = this.cwf.getEventPeople(this.activeEvent._id).subscribe((r)=>{
+    //   this.activeEvent.volunteers = r
+    //   console.log(r)
+    // })
   }
+
+
   showApproved(state){
     this.approvedList = state;
   }
@@ -72,12 +85,14 @@ export class DashboardComponent implements OnInit {
     return this.animClass;
   }
 
-  isComplete(ev){
-    return ev.capacity == ev.volunteers.length;
+  isCompleted(ev){
+    return ev.capacity >= 1;
   }
 
   approveVolunteer(i, vid, eid){
+    console.log(i);
     this.cwf.approveVol(vid, eid);
+    this.activeEvent = this.activeEvent.slice(i);
   }
   rejectVolunteer(i, vid, eid){
     this.activeEvent = this.activeEvent.slice(i);
