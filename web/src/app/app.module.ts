@@ -6,9 +6,13 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from "./login/login.component"
+
+import { MomentModule } from 'angular2-moment';
+
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {AgmCoreModule} from '@agm/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -43,6 +47,11 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { ReportsComponent } from './reports/reports.component';
+import { ProfileComponent } from './profile/profile.component';
+import { VolunteersComponent } from './volunteers/volunteers.component';
+
 import { CreateEventsComponent } from './create-events/create-events.component';
 import { GlobalsService } from './globals.service';
 
@@ -56,6 +65,9 @@ import { GlobalsService } from './globals.service';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
+    ReportsComponent,
+    ProfileComponent,
+    VolunteersComponent
     CreateEventsComponent,
   ],
   imports: [
@@ -98,7 +110,10 @@ import { GlobalsService } from './globals.service';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MomentModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [GlobalsService],
   bootstrap: [AppComponent]

@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="wrap" >
+  <div class="user">
+    <h4>Search By Name</h4>
+    <input type="text" placeholder="Search by name" [(ngModel)]="query" name="query">
+  </div>
+
+      
+  <div class="volunteers-wrap" >
+    <div class="volunteer" *ngFor="let v of search()" [routerLink]="[ '/profile', v._id ]">
+      <div class="icon"><i class="material-icons">account_circle</i></div>
+      <div class="name">{{v.name}}</div>
+      <div class="last-active"></div>
+    </div>
+  </div>
+
+</div>

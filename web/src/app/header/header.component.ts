@@ -19,6 +19,9 @@ export class HeaderComponent {
     }, {
       text: "Dashboard",
       route: "/dashboard"
+    },{
+      text: "Volunteers",
+      route: "/volunteers"
     }]
   }
 
