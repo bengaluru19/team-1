@@ -1,6 +1,6 @@
 <head></head>
-<p>create-events works!</p>
 <div style="width: 50%;margin:auto">
+    <h2 style="color:blue">Create New Events</h2>
     <mat-card>
         <form action="POST" #createForm="ngForm" (ngSubmit)="submit(createForm)">
                 <p><mat-form-field>
@@ -37,10 +37,10 @@
                 
                 <!-- <div id="map"></div> -->
                 <!-- <agm-map [latitude]= "lat" [longitude] = "lng">
-                        <agm-marker [latitude]= "lat" [longitude] = "lng"></agm-marker>
-                    </agm-map> -->
-
-                    <!-- <div style="width: 640px; height: 480px" id="mapContainer"></div>
+mat-raised-button (click)="openDialog()">= "lng"></agm-marker>
+mat-raised-button (click)="openDialog()">
+mat-raised-button (click)="openDialog()">
+mat-raised-button (click)="openDialog()">id="mapContainer"></div>
                     <script>
                       // Initialize the platform object:
                       var platform = new H.service.Platform({
@@ -64,10 +64,9 @@
                 <p><mat-form-field>
                         <input matInput [(ngModel)]="event.address" placeholder="Address" name="address">
                 </mat-form-field></p>
-                <button mat-raised-button (click)="submit()">Submit</button> 
+                <button mat-raised-button (click)="submit();openDialog();">Submit</button> 
             </form>
     </mat-card>
-    <div id="map"></div>
     <!-- <h3>Code</h3>
     <p>
         The <code>map.setCenter()</code> method and <code>map.setZoom() </code>method are able to control the location of the map.<br>
