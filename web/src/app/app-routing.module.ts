@@ -5,19 +5,24 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
 import { ReportsComponent } from './reports/reports.component';
 import { ProfileComponent } from './profile/profile.component';
 import { VolunteersComponent } from './volunteers/volunteers.component';
 
+import { CreateEventsComponent } from './create-events/create-events.component';
+
+
 const routes: Routes = [{
-    path: "", 
+    path: "Home", 
     component: HomeComponent
   }, {
-    path: "login",
+    path: '',
     component:LoginComponent
   },{
     path: "dashboard",
     component: DashboardComponent
+
   },{
     path: "reports",
     component: ReportsComponent
@@ -27,6 +32,12 @@ const routes: Routes = [{
   },{
     path: "volunteers",
     component: VolunteersComponent
+
+  },
+  {
+    path: 'createEvents',
+    component: CreateEventsComponent
+
   }
 ];
 
