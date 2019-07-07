@@ -1,0 +1,44 @@
+
+
+Sat Jun 22 21:32:42 2019
+Command line: TestDisk
+
+TestDisk 7.0, Data Recovery Utility, April 2015
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 5.0.0-17-generic (#18-Ubuntu SMP Tue Jun 4 15:34:08 UTC 2019) x86_64
+Compiler: GCC 8.2
+ext2fs lib: 1.44.6, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none, curses lib: ncurses 6.1
+/dev/sda: LBA, HPA, LBA48 support
+/dev/sda: size       937703088 sectors
+/dev/sda: user_max   937703088 sectors
+/dev/sda: native_max 937703088 sectors
+Warning: can't get size for Disk /dev/mapper/control - 0 B - 0 sectors, sector size=512
+Hard disk list
+Disk /dev/sda - 480 GB / 447 GiB - CHS 58369 255 63, sector size=512 - KINGSTON SA400S37480G, S/N:50026B77825DD4B0, FW:SBFKB1C3
+
+Partition table type (auto): EFI GPT
+Disk /dev/sda - 480 GB / 447 GiB - KINGSTON SA400S37480G
+Partition table type: EFI GPT
+
+Interface Advanced
+hdr_size=92
+hdr_lba_self=1
+hdr_lba_alt=937703087 (expected 937703087)
+hdr_lba_start=34
+hdr_lba_end=937703054
+hdr_lba_table=2
+hdr_entries=128
+hdr_entsz=128
+check_part_gpt failed for partition
+ 3 P MS Reserved              1107968    1370111     262144 [Microsoft reserved partition]
+ 1 P EFI System                  2048    1026047    1024000 [EFI system partition]
+ 2 P Unknown                  1026048    1107967      81920 [Basic data partition]
+ 3 P MS Reserved              1107968    1370111     262144 [Microsoft reserved partition]
+ 4 P Unknown                  1370112    2906111    1536000 [Basic data partition]
+ 5 P MS Data                  2906112  328257535  325351424 [Basic data partition]
+     NTFS, blocksize=4096, 166 GB / 155 GiB
+ 7 P Unknown                328257536  483547135  155289600
+ 6 P MS Data                483547136  937701375  454154240 [Basic data partition]
+     NTFS, blocksize=4096, 232 GB / 216 GiB
+SIGHUP detected! TestDisk has been killed.
