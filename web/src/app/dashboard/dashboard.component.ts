@@ -78,6 +78,9 @@ export class DashboardComponent implements OnInit {
 
   approveVolunteer(i, vid, eid){
     this.cwf.approveVol(vid, eid);
+
+    //CHange
+    
   }
   rejectVolunteer(i, vid, eid){
     this.activeEvent = this.activeEvent.slice(i);

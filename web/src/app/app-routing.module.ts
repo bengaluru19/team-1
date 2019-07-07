@@ -15,6 +15,10 @@ import { CreateEventsComponent } from './create-events/create-events.component';
 
 const routes: Routes = [
   {
+    path: 'createEvent',
+    component:CreateEventsComponent,
+  },
+  {
     path: '',
     component:LoginComponent
   },{

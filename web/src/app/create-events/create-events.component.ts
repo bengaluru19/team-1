@@ -17,15 +17,15 @@ export class CreateEventsComponent implements OnInit {
   constructor(private map: MapsService, private http: HttpClient) {
     this.skills = ['Painting','Teaching','Baking']
   }
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-  //     width: '80%',
-  //   });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      width: '40%',
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
   
   submit(createForm:NgForm){
     var lat;
