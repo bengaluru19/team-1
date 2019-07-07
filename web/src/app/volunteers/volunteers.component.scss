@@ -1,0 +1,39 @@
+.wrap{
+  max-width: 1200px;
+  margin: auto;
+  h4{
+    text-align: center;
+  }
+  input{
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #007EA7;
+    font-size: 2rem;
+    display: block;
+    margin: 20px auto 50px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .volunteers-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    .volunteer{
+      background: #00A8E8;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      i{
+        font-size: 2rem;
+      }
+      transition: transform ease 0.3s;
+      &:hover{
+        transform: translateY(-15px);
+      }
+    }
+  }
+}
+

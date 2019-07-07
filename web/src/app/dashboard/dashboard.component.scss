@@ -87,25 +87,98 @@ $shadow2: 0 0 2px 1px #9292922d;
         background: #f6f7f7;
         padding: 20px;
         margin-top: 10px;
-
+        .on{
+          animation: fade-fly 0.5s ease 1s 1 forwards ;
+        }
+        
         .card{
+          display: grid;
+          .loc{
+            display: flex;
+            grid-column: 1 / 2;
+          }
+          grid-gap: 10px;
+          .heading{
+            grid-column: 1 / 3;
+          }
+          .text{
+            grid-column: 1 / 3;
+          }
+          .split{
+            display: grid;
+            justify-content: left;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            b{
+              font-weight: 400;
+            }
+            .active{
+              font-weight: 900;
+            }
+            cursor: pointer;
+          }
           .title{
             font-size: 1.5rem;
             font-weight: 600;
           }
           .volun{
+            grid-column: 2 / 3;
             font-weight: 600;
             font-size: 1.2rem;
+            display: flex;
+            justify-self: right;
+            i{
+              color: #00A8E8;
+            }
           }
           .volunteer-list{
+            grid-column: 1 / 3;
             display: grid;
             grid-gap: 10px;
             .volunteer{
               padding: 10px;
               background: #fff;
+              display: grid;
+              .grid{
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: right;
+                grid-gap: 10px;
+              }
+              .approve{
+                color: rebeccapurple;
+                display: -webkit-box;
+                display: flex;
+                line-height: 1.3;
+                padding: 8px 10px;
+                cursor: pointer;
+                justify-self: right;
+                box-shadow: 0 0 10px 1px #9292922d;
+                border-radius: 4px;
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-gap: 4px;
+                align-items: center;
+              }
+              .dismiss{
+                color: #ec1943;
+              }
             }
           }
         }
     }
+  }
+}
+
+
+@-webkit-keyframes fade-fly{
+  0%{
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
   }
 }
