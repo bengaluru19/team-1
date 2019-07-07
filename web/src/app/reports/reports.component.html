@@ -1,0 +1,88 @@
+<app-header></app-header>
+
+
+<div class="wrap">
+  <h5>Order By</h5>
+  <div class="options">
+    <div class="byevent" [ngClass]="{'active': activeEvent}" (click)="byEvent(true)"><i class="material-icons">
+        event
+        </i> Event</div>
+
+    <div class="byevent" [ngClass]="{'active': !activeEvent}"  (click)="byEvent(false)"><i class="material-icons">
+        supervised_user_circle
+        </i> Volunteers</div>
+  </div>
+  
+</div>
+
+<div class="report">
+  
+  <div class="event-report" *ngIf="activeEvent">
+    <div class="event" *ngFor="let ev of events">
+      <div class="name">
+        {{ev.title}}
+      </div>
+      <div class="volunteers">
+        <div class="row">
+          <div class="col"><b>Name</b></div>
+          <div class="col"><b>email</b></div>
+          <div class="col"><b>Comment</b></div>
+          <div class="col"><b>Check-in</b></div>
+          <div class="col"><b>Check-out</b></div>
+          <div class="col"><b>Check-out</b></div>
+        </div>
+      </div>
+      <div></div>
+      <div class="volunteers">
+        <div class="row" *ngFor="let person of ev.volunteers">
+          <div class="col">
+            {{person.name}}
+          </div>
+          <div class="col">
+            {{person.email}}
+          </div>
+          <div class="col">
+            {{person.company.catchPhrase}}
+          </div>
+          <div class="col">
+            {{ "9:30"}}
+          </div>
+          <div class="col">
+            {{"10:30"  }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="event-report people-report" *ngIf="!activeEvent">
+    <div class="event">
+        <div></div>
+        <div class="volunteers" >
+          <div class="row">
+            <div class="col"><b>Name</b></div>
+            <div class="col"><b>Company</b></div>
+            <div class="col"><b>Comment</b></div>
+          </div>
+        </div>
+    </div>
+    <div class="event" *ngFor="let ev of events">
+        <div></div>
+        <div class="volunteers">
+          <div class="row" *ngFor="let person of ev.volunteers">
+            <div class="col">
+              {{person.name}}
+            </div>
+            <div class="col">
+              {{person.company.name}}
+            </div>
+            <div class="col">
+              {{person.company.catchPhrase}}
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</div>

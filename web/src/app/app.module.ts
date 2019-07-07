@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from "./login/login.component"
 import { MomentModule } from 'angular2-moment';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -42,6 +43,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportsComponent } from './reports/reports.component';
+import { ProfileComponent } from './profile/profile.component';
+import { VolunteersComponent } from './volunteers/volunteers.component';
 
 
 
@@ -52,7 +56,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReportsComponent,
+    ProfileComponent,
+    VolunteersComponent
   ],
   imports: [
     AppRoutingModule,
@@ -90,7 +97,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSortModule,
     MatPaginatorModule,
     MomentModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

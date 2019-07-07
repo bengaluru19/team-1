@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CwfdataService} from '../cwfdata.service'
-
+import { timeout } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,49 +14,32 @@ export class DashboardComponent implements OnInit {
   eventData;
   people;
   stats;
-
- 
-  constructor(cwf: CwfdataService) { 
+  approvedList;
+  animClass;
+  eventsList;
+  vols;
+  constructor(private cwf: CwfdataService, private http: HttpClient) { 
     this.stats = {
       volunteerCount: 120,
       eventCount: 42
     };
-    cwf.getPeople().subscribe((d)=>{
-      this.people = d;
-      this.people.forEach(element => {
-        element.date = new Date(new Date().getTime() - (Math.random()*9009090))
+    this.approvedList = true;
+
+    this.eventsList =  this.http.post(cwf.domain + "/getEvents", {}).subscribe((s)=>{
+      this.eventsList = s;
+      this.eventsList.forEach((element, i) => {
+        this.cwf.getEventPeople(element._id).subscribe((d)=>{
+          console.log(d, i);
+          this.eventsList[i].volunteers = d; 
+        })
       });
-    
-    this.events = [{
-      id: 1,
-      title: "Book Donation",
-      loc: "Madiwala",
-      date: new Date(),
-      status: "upcoming",
-      volunteers: this.people,
-    },{
-      id: 2,
-      title: "Book Donation",
-      loc: "Madiwala",
-      date: new Date(),
-      status: "upcoming",
-      volunteers: this.people,
-    },{
-      id: 3,
-      title: "Book Donation",
-      loc: "Madiwala",
-      date: new Date(),
-      status: "upcoming",
-      volunteers: this.people,
-    },{
-      id: 4,
-      title: "Drawing",
-      loc: "Madiwala",
-      date: new Date(),
-      status: "past",
-      volunteers: this.people,
-    }]
-  })
+    })
+
+    this.vols = cwf.getAllVolunteers().subscribe((r)=>{
+      this.vols = r;
+    })
+      
+
     
     this.eventData = [
       {
@@ -67,14 +51,36 @@ export class DashboardComponent implements OnInit {
   
   } //end of constructor
 
-
+  getAllEvents(){
+    return this.cwf.getEvents();
+  }
   showEventData(ev){
     this.activeEvent = ev;
+  }
+  showApproved(state){
+    this.approvedList = state;
   }
 
   getSVG(s){
     console.log(this.status[s])
     return this.status[s]
+  }
+  getToggleClass(t){
+    this.animClass = "on"
+    let a = this;
+    
+    return this.animClass;
+  }
+
+  isComplete(ev){
+    return ev.capacity == ev.volunteers.length;
+  }
+
+  approveVolunteer(i, vid, eid){
+    this.cwf.approveVol(vid, eid);
+  }
+  rejectVolunteer(i, vid, eid){
+    this.activeEvent = this.activeEvent.slice(i);
   }
 
   totalVolunteers(){
