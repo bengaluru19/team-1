@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from "./login/login.component"
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {AgmCoreModule} from '@agm/core';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 //Angular Material Components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -40,6 +43,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateEventsComponent } from './create-events/create-events.component';
+import { GlobalsService } from './globals.service';
 
 
 
@@ -50,11 +55,18 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateEventsComponent,
   ],
   imports: [
     AppRoutingModule,
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC8PDB8uNMht-xljVEHYaVFDroetaxZB7w'
+    }),
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
     MatCheckboxModule,
@@ -88,7 +100,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatSortModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [GlobalsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

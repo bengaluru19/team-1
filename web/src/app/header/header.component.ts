@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
+import { GlobalsService } from '../globals.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,10 @@ import {MatMenuModule, MatMenuTrigger} from '@angular/material/menu';
 })
 
 export class HeaderComponent {
-  isLoggedIn;
+  invalid = GlobalsService.invalid;
   allMenus;
-  constructor() {
-    this.isLoggedIn = true;
+  constructor(private global:GlobalsService) {
+    
     this.allMenus = [{
       text: "Home",
       route: ""

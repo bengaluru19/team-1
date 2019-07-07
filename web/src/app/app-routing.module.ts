@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateEventsComponent } from './create-events/create-events.component';
 
 const routes: Routes = [{
     path: "Home", 
@@ -15,6 +16,10 @@ const routes: Routes = [{
   },{
     path: "dashboard",
     component: DashboardComponent
+  },
+  {
+    path: 'createEvents',
+    component: CreateEventsComponent
   }
 ];
 
