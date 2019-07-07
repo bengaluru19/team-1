@@ -4,6 +4,7 @@ import { ViewChild } from '@angular/core';
 import { MapsService } from '../maps.service';
 import {HttpClient }  from '@angular/common/http'
 import { NgForm } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 
 @Component({
@@ -14,15 +15,16 @@ import { NgForm } from '@angular/forms';
 export class CreateEventsComponent implements OnInit {
   skills;
   event = {};
-  constructor(private map: MapsService, private http: HttpClient) {
+  constructor(private map: MapsService, private http: HttpClient,private dialog:MatDialog) {
     this.skills = ['Painting','Teaching','Baking']
   }
   // openDialog(): void {
+  //   console.log("Hi");
   //   const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-  //     width: '80%',
+  //     width: '40%',
   //   });
 
-    // dialogRef.afterClosed().subscribe(result => {
+  //   dialogRef.afterClosed().subscribe(result => {
   //     console.log('The dialog was closed');
   //   });
   // }
@@ -67,7 +69,8 @@ export class CreateEventsComponent implements OnInit {
 
         })
         });
-
+        alert("Success");
+        window.location = "/dashboard";
     });
     
       
