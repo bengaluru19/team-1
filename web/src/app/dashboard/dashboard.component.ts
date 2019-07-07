@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   animClass;
   eventsList;
   vols;
+  totalVols
   constructor(private cwf: CwfdataService, private http: HttpClient) { 
     this.stats = {
       volunteerCount: 120,
@@ -37,7 +38,7 @@ export class DashboardComponent implements OnInit {
 
     this.vols = cwf.getAllVolunteers().subscribe((r)=>{
       this.vols = r;
-      
+      this.totalVols = r.length;
     })
       
 
@@ -91,8 +92,8 @@ export class DashboardComponent implements OnInit {
 
   approveVolunteer(i, vid, eid){
     console.log(i);
-    this.cwf.approveVol(vid, eid);
-    this.activeEvent = this.activeEvent.slice(i);
+    // this.cwf.approveVol(vid, eid);
+    console.log(this.activeEvent);  
   }
   rejectVolunteer(i, vid, eid){
     this.activeEvent = this.activeEvent.slice(i);

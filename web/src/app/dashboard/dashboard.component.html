@@ -4,7 +4,7 @@
     <div class="dashboard">
       <div class="stat-box">
           <div>Total Volunteers</div>
-          <div  class="big">{{vols.length}}</div>
+          <div  class="big">{{totalVols}}</div>
       </div>
   
       <div class="stat-box">
@@ -51,12 +51,12 @@
               
               <div class="time">{{ (vols[vol.volunteerId].date) | amTimeAgo}}</div>
               <div class="grid">
-                <div class="approve dismiss" (click)="rejectVolunteer(i,vol.volunteerId, ev.eventId)">
+                <div class="approve dismiss" (click)="rejectVolunteer(i,vol.volunteerId, activeEvent._id)">
                     <i class="material-icons">
                         close
                         </i>dismiss
                 </div>
-                <div class="approve" (click)="approveVolunteer(i,vol.volunteerId, ev.eventId)">
+                <div class="approve" (click)="approveVolunteer(i,vol.volunteerId, activeEvent._id)">
                     <i class="material-icons">
                         check_circle
                         </i>approve

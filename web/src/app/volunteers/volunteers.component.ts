@@ -72,7 +72,7 @@ export class VolunteersComponent implements OnInit {
     
   }
   search(){
-    return  this.fuse.search(this.query.length==''?" ": this.query)
+    return  this.fuse.search(this.query.length==''?"   ": this.query)
   }
   ngOnInit() {
 
