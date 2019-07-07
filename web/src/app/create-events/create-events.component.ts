@@ -70,7 +70,7 @@ export class CreateEventsComponent implements OnInit {
         })
         });
         alert("Success");
-        window.location = "/dashboard";
+        //window.location = "/dashboard";
     });
     
       
