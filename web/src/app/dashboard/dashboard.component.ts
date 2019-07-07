@@ -18,6 +18,7 @@ export class DashboardComponent implements OnInit {
   animClass;
   eventsList;
   vols;
+  totalVols
   constructor(private cwf: CwfdataService, private http: HttpClient) { 
     this.stats = {
       volunteerCount: 120,
@@ -26,7 +27,7 @@ export class DashboardComponent implements OnInit {
     this.approvedList = true;
 
     this.eventsList =  this.http.post(cwf.domain + "/getEvents", {}).subscribe((s)=>{
-      this.eventsList = s;
+      this.eventsList = s.reverse();
       this.eventsList.forEach((element, i) => {
         this.cwf.getEventPeople(element._id).subscribe((d)=>{
           console.log(d, i);
@@ -37,9 +38,9 @@ export class DashboardComponent implements OnInit {
 
     this.vols = cwf.getAllVolunteers().subscribe((r)=>{
       this.vols = r;
+      this.totalVols = r.length;
     })
       
-
     
     this.eventData = [
       {
@@ -50,13 +51,34 @@ export class DashboardComponent implements OnInit {
     ]
   
   } //end of constructor
-
+  getCountX(){
+    let count = 0;
+    this.eventsList.forEach(el => {
+      if(!el.capacity>=1){
+        count++
+      }
+    });
+    return count;
+  }
+  
   getAllEvents(){
     return this.cwf.getEvents();
   }
   showEventData(ev){
     this.activeEvent = ev;
+    let x = {};    
+      this.vols.forEach(el => {
+        x[el._id] = el;
+      });
+      this.vols = x;      
+      
+    // this.activeEvent.volunteers = this.cwf.getEventPeople(this.activeEvent._id).subscribe((r)=>{
+    //   this.activeEvent.volunteers = r
+    //   console.log(r)
+    // })
   }
+
+
   showApproved(state){
     this.approvedList = state;
   }
@@ -72,15 +94,14 @@ export class DashboardComponent implements OnInit {
     return this.animClass;
   }
 
-  isComplete(ev){
-    return ev.capacity == ev.volunteers.length;
+  isCompleted(ev){
+    return ev.capacity >= 1;
   }
 
   approveVolunteer(i, vid, eid){
+
     this.cwf.approveVol(vid, eid);
 
-    //CHange
-    
   }
   rejectVolunteer(i, vid, eid){
     this.activeEvent = this.activeEvent.slice(i);
